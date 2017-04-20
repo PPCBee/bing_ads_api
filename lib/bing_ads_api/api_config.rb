@@ -16,7 +16,7 @@ module BingAdsApi
     # Set defaults
     DEFAULT_VERSION = :v9
     DEFAULT_ENVIRONMENT = :PRODUCTION
-    LATEST_VERSION = :v9
+    LATEST_VERSION = :v10
 
     # Set other constants
     API_NAME = 'BingAdsApi'
@@ -43,6 +43,19 @@ module BingAdsApi
           :CustomerManagementService,
           :OptimizerService,
           :ReportingService
+      ],
+      :v10 => [
+        :AdInsightService,
+        :BulkService,
+        :CampaignManagementService
+      ],
+      :v11 => [
+        :AdInsightService,
+        :BulkService,
+        :CampaignManagementService,
+        :CustomerBillingService,
+        :CustomerManagementService,
+        :ReportingService
       ]
     }
 
@@ -67,6 +80,19 @@ module BingAdsApi
     @@subdir_config = {}
 
     @@address_config = {
+        :v11 => {
+          :AdInsightService          => {:PRODUCTION => "https://adinsight.api.bingads.microsoft.com/Api/Advertiser/AdInsight/v11/AdInsightService.svc?wsdl", :SANDBOX => "https://adinsight.api.sandbox.bingads.microsoft.com/Api/Advertiser/AdInsight/v11/AdInsightService.svc?wsdl"},
+          :BulkService               => {:PRODUCTION => "https://bulk.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v11/BulkService.svc?wsdl",           :SANDBOX => "https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v11/BulkService.svc?wsdl"},
+          :CampaignManagementService => {:PRODUCTION => "https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v11/CampaignManagementService.svc?wsdl", :SANDBOX => "https://campaign.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v11/CampaignManagementService.svc?wsdl"},
+          :CustomerBillingService    => {:PRODUCTION => "https://clientcenter.api.bingads.microsoft.com/Api/Billing/v11/CustomerBillingService.svc?wsdl",       :SANDBOX => "https://clientcenter.api.sandbox.bingads.microsoft.com/Api/Billing/v11/CustomerBillingService.svc?wsdl"},
+          :CustomerManagementService => {:PRODUCTION => "https://clientcenter.api.bingads.microsoft.com/Api/CustomerManagement/v11/CustomerManagementService.svc?wsdl", :SANDBOX => "https://clientcenter.api.sandbox.bingads.microsoft.com/Api/CustomerManagement/v11/CustomerManagementService.svc?wsdl"},
+          :ReportingService          => {:PRODUCTION => "https://reporting.api.bingads.microsoft.com/Api/Advertiser/Reporting/v11/ReportingService.svc?wsdl",               :SANDBOX => "https://reporting.api.sandbox.bingads.microsoft.com/Api/Advertiser/Reporting/v11/ReportingService.svc?wsdl"}
+        },
+        :v10 => {
+          :AdInsightService          => {:PRODUCTION => "https://adinsight.api.bingads.microsoft.com/Api/Advertiser/AdInsight/v10/AdInsightService.svc?wsdl", :SANDBOX => "https://adinsight.api.sandbox.bingads.microsoft.com/Api/Advertiser/AdInsight/v10/AdInsightService.svc?wsdl"},
+          :BulkService               => {:PRODUCTION => "https://bulk.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/BulkService.svc?wsdl",           :SANDBOX => "https://bulk.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/BulkService.svc?wsdl"},
+          :CampaignManagementService => {:PRODUCTION => "https://campaign.api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/CampaignManagementService.svc?wsdl", :SANDBOX => "https://campaign.api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v10/CampaignManagementService.svc?wsdl"},
+        },
         :v9 => {
           :AdIntelligenceService     => {:PRODUCTION => "https://api.bingads.microsoft.com/Api/Advertiser/AdIntelligence/v9/AdIntelligenceService.svc?wsdl", :SANDBOX => "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/AdIntelligence/v9/AdIntelligenceService.svc?wsdl"},
           :BulkService               => {:PRODUCTION => "https://api.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/BulkService.svc?wsdl",           :SANDBOX => "https://api.sandbox.bingads.microsoft.com/Api/Advertiser/CampaignManagement/v9/BulkService.svc?wsdl"},
